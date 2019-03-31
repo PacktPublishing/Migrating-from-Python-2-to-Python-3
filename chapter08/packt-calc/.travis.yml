@@ -1,0 +1,36 @@
+matrix:
+  include:
+    - os: linux
+      dist: xenial
+      language: python
+      python: 3.7
+#      deploy:
+#        provider: pypi
+#        distributions: sdist
+#        user: mainro
+#        password:
+#          secure: "GnBV9fvHy/zvt5W9vJ58fVYDAfjVQVQJPUXyDtrGtyjtO7R8Ga1lKZaoR4ndr3BkfmmFCg9IceHYOA7JOgFr6kSPcU4CoOy8eUjx4x9HREWX3tSnxTvzSycRMVRxbk8CilNyxrqEZ/X52JrT73pvDALVkjEKbPa4FjgAcR2QkTGQZPmUlOsEWhhw3oy2CMl+Y9KL+KAZNr7MmSt7HktwZBHF8rtLSGv9C1SograPqm7NGyA9PXQvH2VJlADf6XDwDtnGT+6D8ni7lsuBHNI3g/MZ3ik9wPTbD5nJV0rbUyqTD426wBaDREv0dPszBqtyO3JxvDUAE81isSC+9EK8FnGEx9M/7rhRbKZdW8s8YoB3Z7IqYNUF3KZm64hTpoKXSkbwN1B0WnrhG2QJoULLDM9Twp12hk0LQw3fyfjrv8tss/xsbd0WdSVUCIRek9Ef24SLZA88AdM3k+z1u0mu34sam+8BDThdbVaTyzlM2Rijgyph2xDVitJveNzPYE0cl7B4tKKO8ByIwvSu8dqRf9JDsm3hkOTDa+I3O0EdsftLgFPId+y2PqZ2q3KeS63aC1vewJKHrweoqsp65vIraldqrAm2bAaH0HYU3SXay1/kaV/5IS7GXatDsS2mpBjh41cZlId/or+tbeR+zf06+pSc0qVnDP8tPV4spNwt2RA="
+#        on:
+#          tags: true
+
+    - os: linux
+      dist: xenial
+      language: python
+      python: 3.6
+
+    - os: osx
+      osx_image: xcode10.1
+      language: sh
+      python: 3.7
+
+    - os: windows
+      language: sh
+      python: 3.7
+      before_install:
+        - choco install python3
+        - ln -s "/c/Python37/python.exe" "/c/Python37/python3.exe"
+        - export PATH="/c/Python37:/c/Python37/Scripts/:$PATH"
+
+script:
+  - python3 setup.py install
+#  - python3 setup.py test

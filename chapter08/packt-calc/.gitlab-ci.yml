@@ -1,0 +1,33 @@
+build-py36:
+  stage: build
+  image: python:3.6
+  script:
+    - python3 setup.py install
+
+build-py37:
+  stage: build
+  image: python:3.7
+  script:
+    - python3 setup.py install
+
+#test-py36:
+#  stage: test
+#  image: python:3.6
+#  script:
+#    - python3 setup.py test
+
+#test-py37:
+#  stage: test
+#  image: python:3.7
+#  script:
+#    - python3 setup.py test
+
+#deploy-py37:
+# stage: deploy
+# image: python:3.7
+# script:
+#   - pip install twine
+#   - python setup.py sdist
+#   - twine upload -u ${PYPI_USER:?} -p ${PYPI_PASSWORD:?} dist/$CI_PROJECT_NAME-*.tar.gz
+# only:
+#   - tags
